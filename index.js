@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const xlsx = require("xlsx");
 
 async function scrapper() {
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   var url = "https://rategain.com/blog/";
   var master = [];
