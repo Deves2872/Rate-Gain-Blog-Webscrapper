@@ -43,8 +43,13 @@ async function scrapper() {
   // const final = JSON.parse(Blog);
   // const Rategain = final.map((obj) => Object.values(obj));
   // console.log(Rategain);
+  const header = [["Title", "Date", "Image URL", "No. of likes"]];
   const wb = xlsx.utils.book_new();
-  const ws = xlsx.utils.aoa_to_sheet(master);
+  const ws = xlsx.utils.aoa_to_sheet(master, {
+    origin: "A2",
+    skipheader: true,
+  });
+  xlsx.utils.sheet_add_aoa(ws, header, { origin: "A1" });
   xlsx.utils.book_append_sheet(wb, ws);
   xlsx.writeFile(wb, "Rate Blog Sheet.xlsx");
 
