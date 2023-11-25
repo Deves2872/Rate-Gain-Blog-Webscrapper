@@ -37,22 +37,7 @@ async function scrapper() {
     master = master.concat(Rategain);
   }
   console.log(master);
-  for (var i = 29; i <= 45; i++) {
-    await page.goto(`${url}${i}/`);
-    const BlogInfo = await page.$$eval(".blog-items .blog-item", (elements) =>
-      elements.map((e) => ({
-        title: e.querySelector(".content h6").innerText,
-        date: e.querySelector(".content .blog-detail .bd-item").innerText,
-        image: e.querySelector(".img a").href,
-        likes: e.querySelector(".content .zilla-likes").innerText,
-      }))
-    );
-    var Blog = JSON.stringify(BlogInfo);
-    const final = JSON.parse(Blog);
-    const Rategain = final.map((obj) => Object.values(obj));
-    master = master.concat(Rategain);
-  }
-  console.log(master);
+  //console.log(master);
   //console.log(BlogInfo);
   // var Blog = JSON.stringify(BlogInfo);
   // const final = JSON.parse(Blog);
